@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 7rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: relative;
+  top: 95px;
+  z-index: 1;
+}
+
+.banner {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    hsla(141, 81%, 87%, 1) 0%,
+    hsla(41, 88%, 75%, 1) 50%,
+    hsla(358, 82%, 71%, 1) 100%
+  );
+}
+
+.banner .product {
+  width: 180px;
+  height: 340px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  transition: 0.7s;
+  --left: -245px;
+  display: flex;
+}
+
+.banner .product .soda {
+  background: var(--url) var(--left) 0, url("images/mockup.png");
+  background-size: auto 100%;
+  width: 170px;
+  aspect-ratio: 1/2;
+  background-blend-mode: multiply;
+  mask-image: url("images/mockup.png");
+  mask-size: auto 100%;
+  transition: 0.7s;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.banner .product:hover {
+  --left: -680px;
+  transform: translateX(-50%) translateY(-80px);
+}
+
+.banner .product .soda:nth-child(2) {
+  opacity: 0;
+}
+
+.banner .product:hover .soda:nth-child(2) {
+  opacity: 1;
+}
+
+.banner .rock {
+  position: absolute;
+  inset: 0 0 0 0;
+  pointer-events: none;
+}
+
+.banner .rock img {
+  position: absolute;
+  transition: 0.7s;
+}
+
+.banner .rock img:nth-child(1) {
+  height: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  z-index: 1;
+  transition: 0.7s;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(1) {
+  transform: translateX(-50%) translateY(50px);
+}
+
+.banner .rock img:nth-child(2) {
+  height: 60%;
+  bottom: 0;
+  left: 0;
+  transition: 0.7s;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(2) {
+  transform: translateX(-100px) translateY(100px);
+}
+
+.banner .rock img:nth-child(3) {
+  height: 100%;
+  bottom: -100px;
+  right: 80px;
+  rotate: -25deg;
+  transition: 0.7s;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(3) {
+  transform: translateX(100px) translateY(100px);
+}
